@@ -1,0 +1,139 @@
+<app-navbaradmin></app-navbaradmin>
+<div>
+  <h1>Instructores</h1>
+
+  <!--Boton Agregar couch -->
+
+  <div class="Btn-Agregar">
+    <button
+      type="button"
+      class="btn btn-dark"
+      data-bs-toggle="modal"
+      data-bs-target="#AgregarCouch"
+    >
+      Agregar
+    </button>
+  </div>
+  <br />
+  <div *ngFor="Objeto" class="row row-cols-1 row-cols-md-4 g-0">
+    <div class="col">
+      <div class="card" style="max-width: 20rem">
+        <img src="../../../assets/UserIns.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Name</h5>
+          <p>Edad: ______</p>
+          <p>Correo: ______</p>
+          <p>Telefono: ______</p>
+          <p>Especialidad: ______</p>
+
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-dark"
+            data-bs-toggle="modal"
+            data-bs-target="#Modificar"
+          >
+            Modificar
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="Modificar"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-2" id="staticBackdropLabel">
+                    Modificar
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <p>Name: <input type="text" /></p>
+                  <p>Edad: <input type="text" /></p>
+                  <p>Correo: <input type="text" /></p>
+                  <p>Telefono: <input type="text" /></p>
+                  <p>
+                    Especialidad:
+                    <select name="especialidad">
+                      <option>Yoga</option>
+                      <option>Pilates</option>
+                    </select>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-danger">
+                    Eliminar
+                  </button>
+                  <button type="button" class="btn btn-outline-success">
+                    Guardar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="AgregarCouch"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-2" id="staticBackdropLabel">
+              Agregar Instructor
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Name: <input type="text" /></p>
+            <p>Edad: <input type="text" /></p>
+            <p>Correo: <input type="text" /></p>
+            <p>Telefono: <input type="text" /></p>
+            <p>
+              Especialidad:
+              <select name="especialidad">
+                <option>Yoga</option>
+                <option>Pilates</option>
+              </select>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-success">
+              Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <app-footer></app-footer>
+</div>
