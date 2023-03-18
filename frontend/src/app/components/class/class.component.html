@@ -2,7 +2,7 @@
 <div>
   <h1>Clases</h1>
 
-  <!--Boton Agregar couch -->
+  <!--Boton Agregar clase -->
   <div
     class="btn-group"
     role="group"
@@ -50,25 +50,25 @@
   <br />
 
   <div class="row row-cols-1 row-cols-md-4 g-0">
+    <!--Cart MAMALONA PARA VISUALIZAR, MODIFICAR, INSCRIBIR Y ELIMINAR-->
     <div class="col">
-      <div class="card" style="max-width: 20rem">
-        <img
-          src="../../../assets/GymClass.png"
-          class="card-img-top"
-          alt="..."
-        />
+      <div
+        class="card"
+        style="max-width: 20rem"
+        *ngFor="let clases of listClases"
+      >
         <div class="card-body">
-          <h5 class="card-title">Class Name</h5>
-          <p>
-            Tiene como objetivo fortalecer el cuerpo y la mente desde la parte
-            más profunda a la más superficial, aumentando y uniendo el dinamismo
-            y la fuera muscular con el control mental, la relajación y la
-            respiración.
-          </p>
-          <p>Instructor: __________</p>
-          <p>Fecha: __________</p>
-          <p>Hora: __________</p>
-          <p>Cupo: __________</p>
+          <img
+            src="../../../assets/GymClass.png"
+            class="card-img-top"
+            alt="..."
+          />
+          <h5 class="card-title">{{ clases.Nombre_Clase }}</h5>
+          <p>{{ clases.Descripcion }}</p>
+          <p>{{ clases.Nombre_Instructor }}</p>
+          <p>{{ clases.Fecha }}</p>
+          <p>{{ clases.Hora }}</p>
+          <p>{{ clases.Cupo }}</p>
           <!-- Button trigger modal -->
           <button
             type="button"
@@ -78,6 +78,14 @@
           >
             Modificar
           </button>
+          <button
+            type="button"
+            class="btn btn-dark"
+            (click)="eliminarClase(clases._id)"
+          >
+            Eliminar
+          </button>
+
           <br />
           <br />
           <button
@@ -91,6 +99,7 @@
         </div>
       </div>
     </div>
+    <!--Cart MAMALONA PARA VISUALIZAR, MODIFICAR, INSCRIBIR Y ELIMINAR-->
 
     <!-- Modal Agregar clase-->
     <div
@@ -102,7 +111,11 @@
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered">
+      <div
+        class="modal-dialog modal-dialog-centered"
+        [formGroup]="claseForm"
+        (ngSubmit)="(agregarClase)"
+      >
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-2" id="staticBackdropLabel">
@@ -116,30 +129,39 @@
             ></button>
           </div>
           <div class="modal-body">
-            <p>Name class: <input type="text" /></p>
-            <p>Description: <input type="text" /></p>
+            <p>
+              Name class:
+              <input type="text" formControlName="Nombre_Instructor" />
+            </p>
+            <p>
+              Description: <input type="text" formControlName="Descripcion" />
+            </p>
             <p>
               Instructor:
-              <select name="Class">
-                <option>Miguel</option>
-                <option>Angel</option>
-              </select>
+              <input type="text" formControlName="Nombre_Instructor" />
             </p>
             <p>Fecha: <input type="date" value="2023-03-08" /></p>
             <p>
               Hora:
-              <select name="especialidad">
+              <select name="especialidad" formControlName="Hora">
                 <option>17:00</option>
                 <option>19:00</option>
                 <option>21:00</option>
               </select>
             </p>
-            <p>Cupo: <input type="text" /></p>
+            <p>Cupo: <input type="text" formControlName="Cupo" /></p>
+            <p>
+              Foto_Clase: <input type="text" formControlName="Foto_Clase" />
+            </p>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-success">
-              Agregar
+          <div class="mb-3">
+            <button
+              routerLink="/class"
+              class="btn btn-secondary btn-lg float-start"
+            >
+              Volver
             </button>
+            <button class="btn btn-success btn-lg float-end">Agregar</button>
           </div>
         </div>
       </div>
@@ -191,7 +213,6 @@
           <p>Cupo: <input type="text" /></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-danger">Eliminar</button>
           <button type="button" class="btn btn-outline-success">Guardar</button>
         </div>
       </div>
