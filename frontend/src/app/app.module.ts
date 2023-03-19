@@ -10,7 +10,6 @@ import { NavbaradminComponent } from './components/navbaradmin/navbaradmin.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CrearClaseComponent } from './components/crear-clase/crear-clase.component';
 import { CrearInstructorComponent } from './components/crear-instructor/crear-instructor.component';
 
@@ -26,7 +25,6 @@ import { CrearInstructorComponent } from './components/crear-instructor/crear-in
     CrearInstructorComponent,
   ],
   imports: [
-    BrowserAnimationsModule,
     BrowserModule,
     ZXingScannerModule,
     AppRoutingModule,
